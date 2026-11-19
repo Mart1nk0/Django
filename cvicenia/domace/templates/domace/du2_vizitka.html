@@ -1,0 +1,21 @@
+
+    <h1>Moja vizitka</h1>
+
+    <p>Meno: {{ vizitka.meno }}</p>
+    <p>Trieda: {{ vizitka.trieda }}</p>
+    <p>Vek: {{ vizitka.vek }}</p>
+
+    {% if vizitka.vek >= 18 %}
+        <p>Som plnoletý.</p>
+    {% else %}
+        <p>Nie som plnoletý.</p>
+    {% endif %}
+
+    <h2>Obľúbené predmety</h2>
+
+    <ol>
+        {% for predmet in vizitka.predmety %}
+            <li>{{ predmet }}</li>
+        {% endfor %}
+    </ol>
+
