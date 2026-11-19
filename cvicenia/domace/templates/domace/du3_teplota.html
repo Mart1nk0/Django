@@ -1,0 +1,27 @@
+
+
+    <h1>Prevod teploty</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Teplota:</label>
+        <input type="number" step="any" name="teplota" required>
+
+        <br><br>
+
+        <label>Smer prevodu:</label>
+
+        <select name="smer">
+            <option value="c_to_f">°C → °F</option>
+            <option value="f_to_c">°F → °C</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Vypočítať</button>
+    </form>
+
+    {% if vysledok != None %}
+        <h2>Výsledok: {{ vysledok }} {{ jednotka }}</h2>
+    {% endif %}
