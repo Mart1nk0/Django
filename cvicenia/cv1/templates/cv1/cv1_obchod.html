@@ -1,0 +1,52 @@
+<body>
+    <h1>Obchod</h1>
+    <form method="get">
+        <label for="max_cena">Max. cena(€):</label>
+
+
+        <input type="text" id="max_cena" name="max_cena" value="{{ max_cena }}">
+
+        <button type="submit">Filtrovať</button>
+    </form>    
+    
+    {% if chyba %}
+
+    <p>{{ chyba }}</p>
+    
+    {% endif %}
+    
+
+
+    <table border="1">
+        <tr>
+            <th>Názov</th>
+
+            <th>Cena(€)</th>
+        </tr>
+        {% for produkt in produkty %}
+        <tr>
+
+                <td>{{ produkt.nazov }}</td>
+                <td>
+
+                    {% if produkt.cena < 5 %}
+
+                    <strong>{{ produkt.cena|floatformat:2 }}</strong>
+                    {% else %}
+
+                    {{ produkt.cena|floatformat:2 }}
+                    {% endif %}
+                </td>
+        </tr>
+
+
+        {% empty %}
+        <tr>
+
+            <td colspan="2">Žiadne produkty </td>
+        </tr>
+
+
+        {% endfor %}
+    </table>
+</body>

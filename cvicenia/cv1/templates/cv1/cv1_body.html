@@ -1,0 +1,10 @@
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="body" placeholder="Zadaj počet bodov" value="{{ body }}">
+    <input type="text" name="maximum" placeholder="Zadaj maximálny počet bodov" value="{{ maximum }}">
+    <button type="submit">Vypočítaj</button>
+</form>
+
+{% if vysledok %}
+    <p>Výsledok: {{ vysledok }}</p>
+{% endif %}

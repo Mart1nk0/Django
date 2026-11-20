@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'domace',
     'ulohy',
+    "cv1"
 ]
 
 MIDDLEWARE = [
